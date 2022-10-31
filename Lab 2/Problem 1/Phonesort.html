@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="Phonesort.css">
+        <title>Phone</title>
+    </head>
+    <body>
+        <div id="formDiv">
+            <form>
+                <input type="text" id="name" placeholder="Name" />
+                <input type="number" id="number" placeholder="Number" />
+                <input type="email" id="email" placeholder="Email" />
+                <input type="submit" id="submit" value="Submit" />
+            </form>
+        </div>
+        <div id="tableDiv">
+            <input type="number" id="myInput" onkeyup="search_table()" placeholder="Search">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <input type="submit" id="sort" value="sort" />
+
+        <script type="text/javascript">
+            document.getElementById("submit").onclick = function () {
+                var name = document.getElementById("name").value;
+                var number = document.getElementById("number").value;
+                var email = document.getElementById("email").value;
+
+                const tableElement = document.getElementById("table");
+                const trElement = document.createElement("tr");
+                const tbodyElement = document.createElement("tbody");
+
+                const nameEle = document.createElement("td");
+                const numberEle = document.createElement("td1");
+                const emailEle = document.createElement("td");
+
+                nameEle.innerHTML = name;
+                numberEle.innerHTML = number;
+                emailEle.innerHTML = email;
+
+                trElement.appendChild(nameEle);
+                trElement.appendChild(numberEle);
+                trElement.appendChild(emailEle);
+                tbodyElement.appendChild(trElement);
+                tableElement.appendChild(tbodyElement);
+
+                document.getElementById("name").value = '';
+                document.getElementById("number").value = '';
+                document.getElementById("email").value = '';
+
+                return false;
+            };
+            function search_table() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("table");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td1")[0];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            }
+            document.getElementById("sort").onclick = function () {
+                var table, row, swap, i, x, y, MakeSwap;
+                table = document.getElementById("table");
+                swap = true;
+                /* Loop will continue till no swap is made */
+                while (swap) {
+                    swap = false;
+                    row = table.rows;
+
+                    for (i = 1; i < (row.length - 1); i++) {
+                        MakeSwap = false;
+
+                    x = row[i].getElementsByTagName("TD")[0];
+                    y = row[i + 1].getElementsByTagName("TD")[0];
+
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        MakeSwap = true;
+                        break;
+                    }
+                    }
+                    if (MakeSwap) {
+                    row[i].parentNode.insertBefore(row[i + 1], row[i]);
+                    swap = true;
+                    }
+                }
+            }
+        
+        </script>
+    </body>
+</html>

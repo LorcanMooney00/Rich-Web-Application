@@ -1,0 +1,46 @@
+input {
+    padding: 12px;
+}
+button{
+    border-radius: 25px;
+    padding: 12px;
+}
+body {
+    background-color: black;
+    color: #ffffff;
+    font-family: monospace;
+    font-size: large;
+}
+
+#GitUserInfo {
+    float: left;
+    width: 50%;
+}
+
+#SearchBar {
+    float: left;
+    text-align: center;
+    background-color: gray ;
+    padding: 10px;
+}
+
+#Table {
+    border: solid white;
+}
+
+#tableInit{
+    border: solid white;
+}
+thead, th, tr, td, h2, p {
+    border: solid lightslategray;
+}
+
+tbody {
+    border: solid white;
+}
+
+#repo {
+    float: right;
+    width: 50%;
+    height: 100px;
+}
